@@ -32,7 +32,7 @@ const Home = ({
 }: Props) => {
   // console.log(netflixOriginals)
   return (
-    <div className=" relative bg-gradient-t-b from-gray-900/10 to-[#010511]">
+    <div className=" relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511]">
       <Head>
         <title>Metaflix - Watch your favourite tv shows and movies online</title>
         <link rel="icon" href="/mlogo.png" />
@@ -40,7 +40,7 @@ const Home = ({
       <Header />
       <main className='relative pl-4 pb-24 lg:space-y-24 lg:pl-16'>
         <Banner netflixOriginals={netflixOriginals}/>
-        <section className="">
+        <section className="md:space-y-24">
           <Row title="Trending Now" movies={trendingNow} />
           <Row title="Top Rated" movies={topRated} />
           <Row title="Action Thrillers" movies={actionMovies} />

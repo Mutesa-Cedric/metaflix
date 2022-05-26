@@ -21,7 +21,7 @@ function Header() {
   console.log(isScrolled)
     return (
     <header className={`fixed w-full z-50 ${isScrolled && 'bg-[#141414]'}`} >
-      <div className='flex w-full   items-center lg:px-12 md:px-6 px-3 space-x-2 justify-between md:space-x-10'>
+      <div className='flex w-full   items-center lg:pl-14 md:px-6 px-3 space-x-2 justify-between md:space-x-10'>
         <div className='flex space-x-10 items-center'>
           <img src='/logo.png' alt='Metaflix ' className=' w-32' />
           <ul className='hidden space-x-4 md:flex'>
@@ -36,7 +36,7 @@ function Header() {
 
         <div className='flex items-center space-x-4 text-sm font-light'>
           <SearchIcon className='h-6 w-6 hidden sm:inline' />
-          <p className='hidden lg-inline'>Kids</p>
+          <p className='hidden sm:inline  text-lg font-semibold leading-4'>Kids</p>
           <BellIcon className='h-6 w-6' />
           <Link href={'/account'}>
             <img src="https://rb.gy/g1pwyx" alt="" className='cursor-pointer rounded'/>

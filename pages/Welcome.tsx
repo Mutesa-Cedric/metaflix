@@ -88,7 +88,7 @@ function Welcome() {
 
                 {/* firth section */}
 
-                <div className="px-52  flex  items-center py-16  border-b-[8px] border-[#222]">
+                <div className="px-52  flex md:flex-nowrap flex-wrap items-center py-16  border-b-[8px] border-[#222]">
                     <div className="">
                         <Image src={'/kids.png'} alt="kids" width={1000} height={700} />
                     </div>
@@ -102,7 +102,7 @@ function Welcome() {
 
                 {/* frequently asked questions */}
 
-                <div className="flex items-center flex-col px-80  justify-center py-20 border-b-8 border-[#222]">
+                <div className="flex items-center flex-col px-[350px]  justify-center py-20 border-b-8 border-[#222]">
                     <div className="w-full text-center mb-4">
                         <h1 className="text-5xl pb-12 font-medium">
                             Frequently Asked Questions
@@ -136,7 +136,7 @@ function Welcome() {
                         </div>
                     </Link>
 
-                    <div id="footer-items" className=" flex w-full justify-between mt-5 mb-6 text-[14px]">
+                    <div id="footer-items" className=" flex flex-wrap w-full justify-between mt-5 mb-6 text-[14px]">
                         <div>
                             <p className="py-2">FAQ</p>
                             <p className="py-2">Investor Relations</p>

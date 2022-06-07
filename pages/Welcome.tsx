@@ -3,7 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { GrFormNext } from "react-icons/gr"
 import { IconContext } from "react-icons";
-import {HiDownload} from "react-icons/hi";
+import { HiDownload } from "react-icons/hi";
 function Welcome() {
     return (
         <div>
@@ -62,7 +62,7 @@ function Welcome() {
                         <div className="absolute bottom-32 left-[13%] border-2 flex pl-4 py-3   pr-10  bg-black items-center border-[#222] rounded-xl">
                             <Image src={"/boxshot.png"} objectFit="cover" width={50} height={80} />
                             <p className="font-medium ml-4 pr-20 text-lg">Downloading...</p>
-                            <HiDownload fontSize={24}/>
+                            <HiDownload fontSize={24} />
                         </div>
                     </div>
                     <div className="w-3/5">
@@ -73,6 +73,30 @@ function Welcome() {
                     </div>
                 </div>
                 {/* third section */}
+
+
+                {/* fourth section */}
+
+                <div className="px-52 py-10 flex justify-center flex-col border-b-[8px] border-[#222]">
+                    <h1 className="text-5xl pb-8 font-medium ">Watch everywhere.</h1>
+                    <p className="text-2xl pb-8 font-medium w-[45%]">Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</p>
+                </div>
+
+                {/* fourth section */}
+
+                {/* firth section */}
+
+                <div className="px-52  flex  items-center py-16  border-b-[8px] border-[#222]">
+                    <div className="">
+                        <Image src={'/kids.png'} alt="kids" width={1000} height={700}/>
+                    </div>
+                    <div className="w-full flex items-end flex-col">
+                        <h1 className="text-5xl pb-8 font-medium ">Create profiles for kids.</h1>
+                        <p className="text-2xl font-medium w-4/5 itmes-start self-center ml-20" >Send kids on adventures with their favorite characters in a space made just for them—free with your membership.</p>
+                    </div>
+                </div>
+
+                {/* firth section */}
 
             </main>
         </div>

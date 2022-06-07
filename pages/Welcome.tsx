@@ -3,6 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { GrFormNext } from "react-icons/gr"
 import { IconContext } from "react-icons";
+import {HiDownload} from "react-icons/hi";
 function Welcome() {
     return (
         <div>
@@ -43,17 +44,36 @@ function Welcome() {
                     </div>
                     <div className="relative">
                         <Image src={'/tv.png'} objectFit="cover"
-                            width={700} height={420} />
-                        <video autoPlay loop style={{ width: '398px', height: '190px' }} className="absolute top-[40px] left-10">
+                            width={700} height={420}
+                            className="z-10" />
+                        <video autoPlay loop style={{ width: '398px', height: '190px' }}
+                            className="absolute top-[40px] left-10">
                             <source src="/video-tv-0819.m4v" />
                         </video>
                     </div>
                 </div>
                 {/* second section */}
+
+                {/* third section */}
+                <div className=" relative pl-28 pr-56 pb-24 pt-4  flex justify-between border-b-[8px] border-[#222] items-center">
+                    <div className=" ">
+                        <Image src={"/mobile-0819.jpg"} objectFit="cover"
+                            width={550} height={400} />
+                        <div className="absolute bottom-32 left-[13%] border-2 flex pl-4 py-3   pr-10  bg-black items-center border-[#222] rounded-xl">
+                            <Image src={"/boxshot.png"} objectFit="cover" width={50} height={80} />
+                            <p className="font-medium ml-4 pr-20 text-lg">Downloading...</p>
+                            <HiDownload fontSize={24}/>
+                        </div>
+                    </div>
+                    <div className="w-3/5">
+                        <h1 className="text-5xl pb-8 font-medium ">
+                            Download your shows to watch offline.
+                        </h1>
+                        <p className="text-2xl pb-8 font-medium ">Save your favorites easily and always have something to watch.</p>
+                    </div>
+                </div>
                 {/* third section */}
 
-                
-                {/* third section */}
             </main>
         </div>
     )

@@ -4,6 +4,8 @@ import Link from "next/link"
 import { GrFormNext } from "react-icons/gr"
 import { IconContext } from "react-icons";
 import { HiDownload } from "react-icons/hi";
+import { questions } from "../constants/Questions";
+import Question from "../components/Question";
 function Welcome() {
     return (
         <div>
@@ -28,7 +30,7 @@ function Welcome() {
                         <p className="text-xl mb-6">Ready to watch? Enter your email to create or restart your membership.</p>
                         <div className="w-full flex">
                             <input type="text" placeholder="Email Address" className="h-[70px] w-full px-4 placeholder:text-lg rounded-l-sm" />
-                            <button className="w-[45%] text-3xl bg-[#e50914] font-medium rounded-r-sm flex items-center justify-evenly"><span>Get Started</span>
+                            <button className="w-[45%] text-3xl bg-[#e50914] font-normal rounded-r-sm flex items-center justify-evenly"><span>Get Started</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-8" viewBox="0 0 20 20" fill="currentColor">
                                     <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
                                 </svg>
@@ -88,15 +90,86 @@ function Welcome() {
 
                 <div className="px-52  flex  items-center py-16  border-b-[8px] border-[#222]">
                     <div className="">
-                        <Image src={'/kids.png'} alt="kids" width={1000} height={700}/>
+                        <Image src={'/kids.png'} alt="kids" width={1000} height={700} />
                     </div>
                     <div className="w-full flex items-end flex-col">
                         <h1 className="text-5xl pb-8 font-medium ">Create profiles for kids.</h1>
-                        <p className="text-2xl font-medium w-4/5 itmes-start self-center ml-20" >Send kids on adventures with their favorite characters in a space made just for them—free with your membership.</p>
+                        <p className="text-2xl font-medium w-4/5 itmes-start self-center ml-16" >Send kids on adventures with their favorite characters in a space made just for them—free with your membership.</p>
                     </div>
                 </div>
 
                 {/* firth section */}
+
+                {/* frequently asked questions */}
+
+                <div className="flex items-center flex-col px-80  justify-center py-20 border-b-8 border-[#222]">
+                    <div className="w-full text-center mb-4">
+                        <h1 className="text-5xl pb-12 font-medium">
+                            Frequently Asked Questions
+                        </h1>
+                    </div>
+                    <div className=" w-full">
+                        {questions.map(question => {
+                            return <Question key={question.id} {...question} />
+                        })}
+                    </div>
+                    <div className="w-4/5 flex flex-col items-center justify-center pt-10">
+                        <p className="text-xl pb-4 font-normal">Ready to watch? Enter your email to create or restart your membership.</p>
+                        <div className="w-full flex">
+                            <input type="text" placeholder="Email Address" className="h-[70px] w-full px-4 placeholder:text-lg rounded-l-sm" />
+                            <button className="w-[45%] text-3xl bg-[#e50914] font-normal rounded-r-sm flex items-center justify-evenly"><span>Get Started</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-8" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                {/* frequently asked questions */}
+
+                {/* footer */}
+                <footer className="px-80 flex flex-col justify-between pt-12 pb-2 text-[#757575] ">
+                    <Link href="/contact">
+                        <div className="cursor-pointer">
+                            <p>Questions? Contact us.</p>
+                        </div>
+                    </Link>
+
+                    <div id="footer-items" className=" flex w-full justify-between mt-5 mb-6 text-[14px]">
+                        <div>
+                            <p className="py-2">FAQ</p>
+                            <p className="py-2">Investor Relations</p>
+                            <p className="py-2">Privacy</p>
+                            <p className="py-2">Speed Test</p>
+                        </div>
+                        <div>
+                            <p className="py-2">Help Center</p>
+                            <p className="py-2">Jobs</p>
+                            <p className="py-2">Cookie Preferences</p>
+                            <p className="py-2">Legal Notices</p>
+                        </div>
+                        <div>
+                            <p className="py-2">Account</p>
+                            <p className="py-2">Ways to Watch</p>
+                            <p className="py-2">Corporate Information</p>
+                            <p className="py-2">Only on Netflix</p>
+                        </div>
+                        <div>
+                            <p className="py-2">Media Center</p>
+                            <p className="py-2">Terms of Use</p>
+                            <p className="py-2">Contact Us</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p>Metaflix Rwanda</p>
+                    </div>
+                    <div className="w-full text-center mt-4">
+                        <p className="italic text-[14px]">© 2022 Mutesa Cedric</p>
+                    </div>
+                </footer>
+
+                {/* footer */}
 
             </main>
         </div>

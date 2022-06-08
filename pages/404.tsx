@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
@@ -11,7 +12,7 @@ function NotFund() {
             </Head>
             <header className='w-full bg-black py-3 pl-8'>
                 <Link href={'/'}>
-                    <img src="logo.png" alt="logo" className='w-32 h-14' />
+                    <Image src="logo.png" alt="logo" className='w-32 h-14' />
                 </Link>
             </header>
             <main className='bg-no-repeat bg-center bg-cover w-screen h-[89vh] relative' style={{ backgroundImage: `linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.2)), url(/bg-lost-in-space.png)` }}>
@@ -32,7 +33,7 @@ function NotFund() {
                     </div>
                 </div>
                 <div className='absolute bottom-10 right-16 text-xl md:flex hidden uppercase'>
-                    <span className='text-gray-700 font-bold '>From</span> <span className='font-medium'>Lost In Space</span> 
+                    <span className='text-gray-400 font-bold  px-2'>From</span> <span className=' text-gray-200'>Lost In Space</span> 
                 </div>
             </main>
         </div>

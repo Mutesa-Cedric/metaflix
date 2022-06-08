@@ -16,7 +16,7 @@ function NotFund() {
                 </Link>
             </header>
             <main className='bg-no-repeat bg-center bg-cover w-screen h-[89vh] relative' style={{ backgroundImage: `linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.2)), url(/bg-lost-in-space.png)` }}>
-                <div className="w-full h-full flex flex-col justify-center items-center">
+                {/* <div className="w-full h-full flex flex-col justify-center items-center">
                     <h1 className="md:text-7xl text-3xl font-bold mb-6 mx-auto">Lost your way?</h1>
                     <p className="md:text-3xl text-xl w-3/5 text-center my-4 font-[400]">Sorry, we can't find that page.You'll find lots to explore on home page.</p>
                     <Link href={"/Welcome"}>
@@ -31,7 +31,7 @@ function NotFund() {
                             <span className="font-medium md:text-2xl text-lg">MSES-4040</span>
                         </div>
                     </div>
-                </div>
+                </div> */}
                 <div className="absolute bottom-10 right-16 text-xl md:flex hidden uppercase">
                     <span className="text-gray-400 font-bold  px-2">From</span>
                      <span className="text-gray-200">Lost In Space</span>

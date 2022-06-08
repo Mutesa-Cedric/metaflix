@@ -21,7 +21,7 @@ function NotFund() {
                         Lost your way?
                     </h1>
                     <p className="md:text-3xl text-xl w-3/5 text-center my-4 font-[400]">
-                        Sorry, we can't find that page.You will find lots to explore on home page.
+                        Sorry, we can&apos;t find that page.You&apos;ll find lots to explore on home page.
                     </p>
                     <Link href={"/Welcome"}>
                         <button className="text-black bg-white md:px-8 px-4 md:py-2 py-1 my-5 rounded-md text-[18px] font-medium">

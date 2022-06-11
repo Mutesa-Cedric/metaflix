@@ -3,6 +3,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head';
 import Image from 'next/image';
 import { useForm, SubmitHandler } from "react-hook-form";
+import useAuth from '../hooks/useAuth';
 
 interface Inputs {
   email: string;
@@ -11,13 +12,13 @@ interface Inputs {
 
 const Login: NextPage = () => {
   const [login, setLogin] = useState(false);
+  const {signIn,signUp}=useAuth();
   const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async data => {
     if (login) {
-      // await login(email,password);
-      
+      await signIn(data.email,data.password);
     } else {
-      //await signup(email,password);
+      await signUp(data.email,data.password);
     }
   };
   return (

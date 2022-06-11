@@ -9,20 +9,62 @@ import {
 } from 'firebase/auth'
 
 import { useRouter } from 'next/router'
-import { createContext, useContext, useEffect, useMemo, useState } from 'react'
+import { Children, createContext, useContext, useEffect, useMemo, useState } from 'react'
 import { auth } from '../firebase'
+
+interface IAuth {
+    user: User | null
+    signUp: (email: string, password: string) => Promise<void>
+    signIn: (email: string, password: string) => Promise<void>
+    logout: () => Promise<void>
+    error: string | null
+    loading: boolean
+}
+
 
 // imports
 
+const AuthContext = createContext<IAuth>({
+    user: null,
+    signUp: async () => { },
+    signIn: async () => { },
+    logout: async () => { },
+    error: null,
+    loading: false
+})
+interface AuthProviderProps {
+    children: React.ReactNode
+}
 
 //this is my custom hook that will be used to authenticate the user
-function useAuth() {
-    // loading
+export function AuthProvider({ children }: AuthProviderProps) {
     const [loading, setLoading] = useState(false)
-
-    // loading
-
     const [user, setUser] = useState<User | null>(null);
+    const [error, setError] = useState<string | null>(null);
+    const [initialLoading, setInitialLoading] = useState(true);
+
+    // User is authenticated
+    useEffect(
+        () =>
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    // Logged in...
+                    setUser(user)
+                    setLoading(false)
+                } else {
+                    // Not logged in...
+                    setUser(null)
+                    setLoading(true)
+                    router.push('/login')
+                }
+
+                setInitialLoading(false)
+            }),
+        [auth]
+    )
+    // User is authenticated
+
+    
     const router = useRouter();
     // signup function
     const signUp = async (email: string, password: string) => {
@@ -63,22 +105,36 @@ function useAuth() {
 
     //logout function
 
-    const logout=async()=>{
+    const logout = async () => {
         setLoading(true);
-        await signOut(auth).then(()=>{
-            setLoading(false);
+        await signOut(auth).then(() => {
+            // setLoading(false);
             setUser(null);
-            router.push('/');
-        }).catch((err)=>{
+            // router.push('/');
+        }).catch((err) => {
             alert(err.message);
-        }).finally(()=>{
+        }).finally(() => {
             setLoading(false);
-        })   
+        })
     }
 
     //logout function
 
-    return user;
+    //useMemo to increase performance
+    const memoedValue = useMemo(() => ({
+        user, signUp, signIn, loading, logout, error
+    }), [user, loading, error])
+    //useMemo to increase performance
+
+    //returning context to share info accross page
+    return (<AuthContext.Provider value={memoedValue}>
+        {children}
+    </AuthContext.Provider>);
+    //returning context to share info accross page
+
 }
 
-export default useAuth
+export default function useAuth() {
+    return useContext(AuthContext);
+}
+

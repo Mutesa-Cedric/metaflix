@@ -18,7 +18,7 @@ function Header() {
     }
   })
 
-  console.log(isScrolled)
+  // console.log(isScrolled)
     return (
     <header className={`fixed w-full z-50 ${isScrolled && 'bg-[#141414]'}`} >
       <div className='flex w-full   items-center lg:pl-14 md:px-6 px-3 space-x-2 justify-between md:space-x-10'>

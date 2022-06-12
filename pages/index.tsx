@@ -4,14 +4,9 @@ import Header from '../components/Header'
 import { Movie } from '../typings'
 import requests from '../utils/requests'
 import Row from '../components/Row'
-
-import {
-  RecoilRoot,
-  atom,
-  selector,
-  useRecoilState,
-  useRecoilValue,
-} from 'recoil';
+import { useRecoilState, useRecoilValue, } from 'recoil';
+import { modalState, movieState } from '../atoms/modalAtom'
+import Modal from '../components/Modal'
 
 
 //interface for props types
@@ -25,7 +20,7 @@ interface Props {
   horrorMovies: Movie[]
   romanceMovies: Movie[]
   documentaries: Movie[]
-}                                                                     
+}
 
 //interface for props types
 
@@ -42,7 +37,8 @@ const Home = ({
 }: Props) => {
   // console.log(netflixOriginals)
 
-  // const showModel=useRecoilValue()
+  const showModal = useRecoilValue(modalState);
+  const movie = useRecoilValue(movieState);
 
   return (
     <div className=" relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511]">
@@ -52,7 +48,7 @@ const Home = ({
       </Head>
       <Header />
       <main className='relative pl-4 pb-24 lg:space-y-24 lg:pl-16'>
-        <Banner netflixOriginals={netflixOriginals}/>
+        <Banner netflixOriginals={netflixOriginals} />
         <section className="md:space-y-24">
           <Row title="Trending Now" movies={trendingNow} />
           <Row title="Top Rated" movies={topRated} />
@@ -66,6 +62,10 @@ const Home = ({
           <Row title="Documentaries" movies={documentaries} />
         </section>
       </main>
+      {/* movie modal */}
+      {showModal && <Modal />}
+      {/* movie modal */}
+
 
     </div>
   )

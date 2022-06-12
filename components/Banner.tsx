@@ -4,6 +4,8 @@ import { baseUrl } from '../constants/movie';
 import { Movie } from '../typings';
 import { FaPlay } from 'react-icons/fa';
 import { InformationCircleIcon } from '@heroicons/react/solid';
+import { useRecoilState } from 'recoil';
+import { modalState, movieState } from '../atoms/modalAtom';
 //interface for movie types
 interface Props {
   netflixOriginals: Movie[]
@@ -16,10 +18,12 @@ function Banner({ netflixOriginals }: Props) {
   //setting a random movie to get its cover image
 
   const [movie, setMovie] = useState<Movie | null>(null)
+  const [currentMovie, setCurrentMovie] = useRecoilState(movieState)
+  const [showModal, setShowModal] = useRecoilState(modalState)
+
   useEffect(() => {
     const randomMovie = netflixOriginals[Math.floor(Math.random() * netflixOriginals.length)]
     setMovie(randomMovie)
-
     return () => {
       setMovie(null)
     }
@@ -53,6 +57,10 @@ function Banner({ netflixOriginals }: Props) {
 
         <button
           className="flex items-center gap-x-2 rounded px-5 py-1.5 text-sm font-semibold transition hover:opacity-75 md:py-2.5 md:px-8 md:text-xl bg-[gray]/70"
+          onClick={() => {
+            setCurrentMovie(movie)
+            setShowModal(true)
+          }}
         >
           <InformationCircleIcon className="h-5 w-5 md:h-8 md:w-8" /> More Info
         </button>

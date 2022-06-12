@@ -110,7 +110,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         await signOut(auth).then(() => {
             // setLoading(false);
             setUser(null);
-            // router.push('/');
+            router.push('/');
         }).catch((err) => {
             alert(err.message);
         }).finally(() => {

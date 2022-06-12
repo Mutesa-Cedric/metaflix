@@ -10,7 +10,7 @@ import { getAuth } from 'firebase/auth'
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: process.env.NEXT_FIREBASE_API_KEY,
+    apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
     authDomain: "metaflix-39883.firebaseapp.com",
     projectId: "metaflix-39883",
     storageBucket: "metaflix-39883.appspot.com",
@@ -19,6 +19,7 @@ const firebaseConfig = {
     measurementId: "G-SQLQBZVVX5"
 }
 
+// console.log(process.env.NEXT_PUBLIC_FIREBASE_API_KEY)
 // Initialize Firebase
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp()
 const db = getFirestore()

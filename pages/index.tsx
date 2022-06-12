@@ -31,6 +31,11 @@ const Home = ({
 
 }: Props) => {
   // console.log(netflixOriginals)
+
+  // importing logout from useAuth hook
+
+  // importing logout from useAuth hook
+
   return (
     <div className=" relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511]">
       <Head>

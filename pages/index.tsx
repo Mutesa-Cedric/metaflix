@@ -4,6 +4,16 @@ import Header from '../components/Header'
 import { Movie } from '../typings'
 import requests from '../utils/requests'
 import Row from '../components/Row'
+
+import {
+  RecoilRoot,
+  atom,
+  selector,
+  useRecoilState,
+  useRecoilValue,
+} from 'recoil';
+
+
 //interface for props types
 
 interface Props {
@@ -32,9 +42,7 @@ const Home = ({
 }: Props) => {
   // console.log(netflixOriginals)
 
-  // importing logout from useAuth hook
-
-  // importing logout from useAuth hook
+  // const showModel=useRecoilValue()
 
   return (
     <div className=" relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511]">

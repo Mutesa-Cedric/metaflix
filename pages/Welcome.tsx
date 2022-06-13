@@ -29,7 +29,7 @@ function Welcome() {
                         <p className="lg:text-3xl md:text-2xl text-xl mb-8">watch anywhere. cancel anytime.</p>
                         <p className="text-xl lg:text-start text-center mb-6">Ready to watch? Enter your email to create or restart your membership.</p>
                         <div className="w-full flex md:flex-row flex-col items-center">
-                            <input type="text" placeholder="Email Address" className="lg:h-[70px] md:h-[60px] h-[45px] w-full px-4 placeholder:text-lg rounded-l-sm" />
+                            <input type="text" placeholder="Email Address" className="lg:h-[70px] md:h-[60px] h-[45px] text-black w-full px-4 placeholder:text-lg rounded-l-sm" />
                             <button className="md:w-[45%] w-[180px] lg:text-3xl md:text-2xl lg:h-[70px] md:h-[60px] h-[45px] text-xl bg-[#e50914] font-normal rounded-r-sm mt-4 md:mt-0 flex items-center justify-evenly"><span>Get Started</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" className="md:h-10 md:w-8 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                     <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />

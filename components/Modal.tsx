@@ -14,7 +14,7 @@ function Modal() {
   const [movie, setMovie] = useRecoilState(movieState);
   const [trailer, setTrailer] = useState("");
   const [genres, setGenres] = useState<Genre[]>([]);
-  const [muted, setMuted] = useState(true);
+  const [muted, setMuted] = useState(false);
   //fetching movie video
   useEffect(() => {
     if (!movie) return

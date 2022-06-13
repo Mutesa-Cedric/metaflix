@@ -5,3 +5,6 @@ module.exports = {
     domains: ['image.tmdb.org','assets.nflxext.com','rb.gy'],
   },
 }
+typescript: {
+  ignoreBuildErrors: true
+}

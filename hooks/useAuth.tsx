@@ -50,16 +50,20 @@ export function AuthProvider({ children }: AuthProviderProps) {
                     // Logged in...
                     setUser(user)
                     setLoading(false)
-                } else if(localStorage.getItem("signedUp")) {
+                } else if (localStorage.getItem("signedUp")) {
                     // Not logged in...
                     router.push('/login')
                     setUser(null)
-                    setLoading(false)
+                    setTimeout(() => {
+                        setLoading(false)
+                    }, 500)
                 }
-                else{
+                else {
                     router.push("/welcome")
                     setUser(null)
-                    setLoading(false)
+                    setTimeout(() => {
+                        setLoading(false)
+                    }, 500)
                 }
                 setInitialLoading(false)
             }),
@@ -79,7 +83,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
         await createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                localStorage.setItem("signedUp",`${Math.random()*1000000}`);
+                localStorage.setItem("signedUp", `${Math.random() * 1000000}`);
                 setUser(userCredential.user);
                 router.push('/');
                 setLoading(false)
@@ -96,7 +100,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         setLoading(true);
         await signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                localStorage.setItem("signedUp",`${Math.random()*1000000}`);
+                localStorage.setItem("signedUp", `${Math.random() * 1000000}`);
                 setUser(userCredential.user);
                 router.push('/');
                 setLoading(false)

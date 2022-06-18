@@ -27,7 +27,7 @@ const Login: NextPage = () => {
   };
   return (
     <div className="relative flex h-screen w-screen flex-col bg-black md:items-center md:justify-center md:bg-transparent">
-          <Head>
+      <Head>
         <title>Metaflix - Login</title>
         <link rel="icon" href="/mlogo.png" />
       </Head>
@@ -46,7 +46,7 @@ const Login: NextPage = () => {
 
       <form id='signup-form'
         onSubmit={handleSubmit(onSubmit)}
-        className="relative mt-24 space-y-8 rounded bg-black/75 py-10 px-6 md:mt-0 md:max-w-md md:px-14"
+        className="relative mt-24 space-y-8 rounded bg-black/75 pt-10 pb-4 px-6 md:mt-0 md:max-w-md md:px-14"
       >
         <h1 className="text-4xl font-semibold">Log In</h1>
         <div className="space-y-4">
@@ -108,7 +108,11 @@ const Login: NextPage = () => {
           loading &&
           <div className="lds-dual-ring ml-32"></div>
         }
+        <p className="italic text-gray-400/90 font-bold text-center text-[15px]">
+          copyright &copy; 2022 <a href="https://github.com/mutesa-cedric"> Mutesa Cedric</a>
+        </p>
       </form>
+
     </div>
   )
 }

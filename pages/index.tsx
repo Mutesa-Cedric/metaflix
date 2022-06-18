@@ -38,7 +38,7 @@ const Home = ({
 }: Props) => {
   // console.log(netflixOriginals)
 
-  const loadingStyles={
+  const loadingStyles = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -46,15 +46,15 @@ const Home = ({
 
   const showModal = useRecoilValue(modalState);
   const movie = useRecoilValue(movieState);
-  const {loading}=useAuth()
+  const { loading } = useAuth()
   return (
-    <div className=" relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511]" style={loading ? loadingStyles:{}} >
+    <div className=" relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511]" style={loading ? loadingStyles : {}} >
       <Head>
         <title>Metaflix - Watch your favourite tv shows and movies online</title>
         <link rel="icon" href="/mlogo.png" />
       </Head>
       <Header />
-      <main className='relative pl-4 pb-24 lg:space-y-24 lg:pl-16' style={{display:`${loading?"none":""}`,}}>
+      <main className='relative pl-4 pb-24 lg:space-y-24 lg:pl-16' style={{ display: `${loading ? "none" : ""}`, }}>
         <Banner netflixOriginals={netflixOriginals} />
         <section className="md:space-y-24">
           <Row title="Trending Now" movies={trendingNow} />
@@ -68,11 +68,20 @@ const Home = ({
           <Row title="Romance Movies" movies={romanceMovies} />
           <Row title="Documentaries" movies={documentaries} />
         </section>
+
       </main>
+      {!loading && 
+        <footer className='w-full flex items-center justify-center'>
+          <p className=" pb-4 italic text-gray-400 font-bold">
+            copyright &copy; 2022 <a href="https://github.com/mutesa-cedric"> Mutesa Cedric</a>
+          </p>
+        </footer>
+      }
+
       {/* movie modal */}
       {showModal && <Modal />}
       {/* movie modal */}
-      {loading&&<div className="lds-dual-ring"></div>}
+      {loading && <div className="lds-dual-ring"></div>}
     </div>
   )
 }

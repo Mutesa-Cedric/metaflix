@@ -6,7 +6,11 @@ import { IconContext } from "react-icons";
 import { HiDownload } from "react-icons/hi";
 import { questions } from "../constants/Questions";
 import Question from "../components/Question";
+import { useRouter } from 'next/router'
+
 function Welcome() {
+
+    let navigate=useRouter();
     return (
         <div>
             <Head>
@@ -29,8 +33,8 @@ function Welcome() {
                         <p className="lg:text-3xl md:text-2xl text-xl mb-8">watch anywhere. cancel anytime.</p>
                         <p className="text-xl lg:text-start text-center mb-6">Ready to watch? Enter your email to create or restart your membership.</p>
                         <div className="w-full flex md:flex-row flex-col items-center">
-                            <input type="text" placeholder="Email Address" className="lg:h-[70px] md:h-[60px] h-[45px] text-black w-full px-4 placeholder:text-lg rounded-l-sm" />
-                            <button className="md:w-[45%] w-[180px] lg:text-3xl md:text-2xl lg:h-[70px] md:h-[60px] h-[45px] text-xl bg-[#e50914] font-normal rounded-r-sm mt-4 md:mt-0 flex items-center justify-evenly"><span>Get Started</span>
+                            <input type="text" placeholder="Email Address" className="lg:h-[70px] focus:!outline-none text-xl md:h-[60px] h-[45px] text-black w-full px-4 placeholder:text-lg rounded-l-sm" />
+                            <button className="md:w-[45%] w-[180px]  lg:text-3xl md:text-2xl lg:h-[70px] md:h-[60px] h-[45px] text-xl bg-[#e50914] font-normal rounded-r-sm mt-4 md:mt-0 flex items-center justify-evenly" onClick={()=>navigate.push('/login')}><span>Get Started</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" className="md:h-10 md:w-8 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                     <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
                                 </svg>
@@ -117,8 +121,8 @@ function Welcome() {
                     <div className="md:w-4/5 flex flex-col items-center justify-center pt-10">
                         <p className="md:text-xl text-lg pb-4  lg:text-left text-center font-normal">Ready to watch? Enter your email to create or restart your membership.</p>
                         <div className="w-full flex md:flex-row flex-col items-center">
-                            <input type="text" placeholder="Email Address" className="lg:h-[70px] md:h-[60px] h-[50px] w-full px-4 placeholder:text-lg rounded-l-sm" />
-                            <button className="md:w-[45%] w-[150px] lg:text-3xl md:text-2xl lg:h-[70px] md:h-[60px] h-[50px] text-xl bg-[#e50914] font-normal rounded-r-sm mt-6 md:mt-0 flex items-center justify-evenly"><span>Get Started</span>
+                            <input type="text" placeholder="Email Address" className="lg:h-[70px] text-black text-xl md:h-[60px] focus:outline-none h-[50px] w-full px-4 placeholder:text-lg rounded-l-sm" />
+                            <button className="md:w-[45%] w-[150px] lg:text-3xl md:text-2xl lg:h-[70px] md:h-[60px] h-[50px] text-xl bg-[#e50914] font-normal rounded-r-sm mt-6 md:mt-0 flex items-center justify-evenly" onClick={()=>navigate.push('/login')}><span>Get Started</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" className="md:h-10 md:w-8 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                     <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
                                 </svg>

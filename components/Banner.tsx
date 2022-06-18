@@ -5,13 +5,12 @@ import { Movie } from '../typings';
 import { FaPlay } from 'react-icons/fa';
 import { InformationCircleIcon } from '@heroicons/react/solid';
 import { useRecoilState } from 'recoil';
-import { modalState, movieState } from '../atoms/modalAtom';
+import { modalState, movieState, notAvailableModalState } from '../atoms/modalAtom';
 //interface for movie types
 interface Props {
   netflixOriginals: Movie[]
 }
 //interface for movie types
-
 
 function Banner({ netflixOriginals }: Props) {
 
@@ -20,6 +19,7 @@ function Banner({ netflixOriginals }: Props) {
   const [movie, setMovie] = useState<Movie | null>(null)
   const [currentMovie, setCurrentMovie] = useRecoilState(movieState)
   const [showModal, setShowModal] = useRecoilState(modalState)
+  const [showNotAvailableModal, setShowNotAvailableModal] = useRecoilState(notAvailableModalState)
 
   useEffect(() => {
     const randomMovie = netflixOriginals[Math.floor(Math.random() * netflixOriginals.length)]
@@ -31,7 +31,9 @@ function Banner({ netflixOriginals }: Props) {
 
   //setting a random movie to get its cover image
 
-  // console.log(movie);
+  const handlePlay=()=>{
+    setShowNotAvailableModal(true)
+  }
 
   return (
     <div className="flex flex-col space-y-2 py-16 md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12">
@@ -50,7 +52,7 @@ function Banner({ netflixOriginals }: Props) {
         {movie?.overview}
       </p>
       <div className="flex space-x-3">
-        <button className="flex items-center gap-x-2 rounded px-5 py-1.5 text-sm font-semibold transition hover:opacity-75 md:py-2.5 md:px-8 md:text-xl bg-white text-black">
+        <button className="flex items-center gap-x-2 rounded px-5 py-1.5 text-sm font-semibold transition hover:opacity-75 md:py-2.5 md:px-8 md:text-xl bg-white text-black" onClick={handlePlay} >
           <FaPlay className="h-4 w-4 text-black md:h-7 md:w-7" />
           Play
         </button>

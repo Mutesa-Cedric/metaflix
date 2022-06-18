@@ -1,7 +1,7 @@
 import { Movie, Element, Genre } from '../typings'
 import MuiModal from '@mui/material/Modal'
 import { useRecoilState } from 'recoil';
-import { modalState, movieState } from '../atoms/modalAtom';
+import { modalState, movieState, notAvailableModalState } from '../atoms/modalAtom';
 import { PlusIcon, ThumbUpIcon, VolumeOffIcon, VolumeUpIcon, XIcon } from '@heroicons/react/solid';
 import { useEffect, useState } from 'react';
 import { default as _ReactPlayer } from 'react-player/lazy';
@@ -11,6 +11,7 @@ import { FaPlay } from 'react-icons/fa';
 
 function Modal() {
   const [showModal, setShowModal] = useRecoilState(modalState);
+  const [showNotAvailableModal, setShowNotAvailableModal] = useRecoilState(notAvailableModalState);
   const [movie, setMovie] = useRecoilState(movieState);
   const [trailer, setTrailer] = useState("");
   const [genres, setGenres] = useState<Genre[]>([]);
@@ -48,6 +49,10 @@ function Modal() {
     setShowModal(false)
   }
 
+  const handlePlay=()=>{
+    setShowNotAvailableModal(true)
+  }
+
 
 
   return (
@@ -71,7 +76,7 @@ function Modal() {
           />
           <div className='absolute bottom-10 flex w-full items-center justify-between px-10'>
             <div className='flex space-x-4'>
-              <button className="flex items-center gap-x-2 rounded bg-white px-8 text-xl font-bold text-black transition hover:bg-[#e6e6e6]">
+              <button className="flex items-center gap-x-2 rounded bg-white px-8 text-xl font-bold text-black transition hover:bg-[#e6e6e6]" onClick={handlePlay}>
                 <FaPlay className="h-7 w-7 text-black" />
                 Play
               </button>

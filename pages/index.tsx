@@ -5,9 +5,10 @@ import { Movie } from '../typings'
 import requests from '../utils/requests'
 import Row from '../components/Row'
 import { useRecoilState, useRecoilValue, } from 'recoil';
-import { modalState, movieState } from '../atoms/modalAtom'
+import { modalState, movieState, notAvailableModalState } from '../atoms/modalAtom'
 import Modal from '../components/Modal'
 import useAuth from '../hooks/useAuth'
+import NotAvailable from '../components/NotAvailable'
 
 
 //interface for props types
@@ -45,6 +46,7 @@ const Home = ({
   }
 
   const showModal = useRecoilValue(modalState);
+  const showNotAvailableModal = useRecoilValue(notAvailableModalState);
   const movie = useRecoilValue(movieState);
   const { loading } = useAuth()
   return (
@@ -54,7 +56,7 @@ const Home = ({
         <link rel="icon" href="/mlogo.png" />
       </Head>
       <Header />
-      <main className='relative pl-4 pb-24 lg:space-y-24 lg:pl-16' style={{ display: `${loading ? "none" : ""}`, }}>
+      <main className='relative pl-4 pb-24 lg:space-y-24 lg:pl-16' style={{ display: `${loading ? "none" : ""}` }}>
         <Banner netflixOriginals={netflixOriginals} />
         <section className="md:space-y-24">
           <Row title="Trending Now" movies={trendingNow} />
@@ -77,7 +79,7 @@ const Home = ({
           </p>
         </footer>
       }
-
+      {showNotAvailableModal&&<NotAvailable/>}
       {/* movie modal */}
       {showModal && <Modal />}
       {/* movie modal */}

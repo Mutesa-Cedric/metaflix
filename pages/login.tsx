@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { useForm, SubmitHandler } from "react-hook-form";
 import useAuth from '../hooks/useAuth';
+import LoadingButton from '@mui/lab/LoadingButton';
 
 interface Inputs {
   email: string;
@@ -11,21 +12,24 @@ interface Inputs {
 }
 
 const Login: NextPage = () => {
+
   const [login, setLogin] = useState(false);
-  const {signIn,signUp}=useAuth();
+  const { signIn, signUp, loading } = useAuth();
+  // console.log(loading);
+
   const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async data => {
     if (login) {
-      await signIn(data.email,data.password);
+      await signIn(data.email, data.password);
     } else {
-      await signUp(data.email,data.password);
+      await signUp(data.email, data.password);
     }
   };
   return (
     <div className="relative flex h-screen w-screen flex-col bg-black md:items-center md:justify-center md:bg-transparent">
-      <Head>
-        <title>Netflix</title>
-        <link rel="icon" href="/favicon.ico" />
+          <Head>
+        <title>Metaflix - Login</title>
+        <link rel="icon" href="/mlogo.png" />
       </Head>
       <Image
         src="https://rb.gy/p2hphi"
@@ -75,23 +79,35 @@ const Login: NextPage = () => {
             )}
           </label>
         </div>
-        <button
-          className="w-full rounded bg-[#E50914] py-3 font-semibold"
-          type="submit"
-          onClick={() => setLogin(true)}
-        >
-          Sign In
-        </button>
-        <div className="text-[gray]">
-          New to Metflix?{' '}
+        {
+          !loading &&
           <button
-            className="cursor-pointer text-white hover:underline"
+            className="w-full rounded bg-[#E50914] py-3 font-semibold"
             type="submit"
-            onClick={() => setLogin(false)}
+            onClick={() => setLogin(true)}
           >
-            Sign up now
+            Sign In
           </button>
-        </div>
+        }
+
+        {
+          !loading &&
+          <div className="text-[gray]">
+            New to Metflix?{' '}
+            <button
+              className="cursor-pointer text-white hover:underline"
+              type="submit"
+              onClick={() => setLogin(false)}
+            >
+              Sign up now
+            </button>
+          </div>
+        }
+
+        {
+          loading &&
+          <div className="lds-dual-ring ml-32"></div>
+        }
       </form>
     </div>
   )

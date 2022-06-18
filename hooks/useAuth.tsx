@@ -7,7 +7,6 @@ import {
     signOut,
     User,
 } from 'firebase/auth'
-
 import { useRouter } from 'next/router'
 import { Children, createContext, useContext, useEffect, useMemo, useState } from 'react'
 import { auth } from '../firebase'
@@ -38,7 +37,7 @@ interface AuthProviderProps {
 
 //this is my custom hook that will be used to authenticate the user
 export function AuthProvider({ children }: AuthProviderProps) {
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
     const [user, setUser] = useState<User | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [initialLoading, setInitialLoading] = useState(true);
@@ -51,20 +50,24 @@ export function AuthProvider({ children }: AuthProviderProps) {
                     // Logged in...
                     setUser(user)
                     setLoading(false)
-                } else {
+                } else if(localStorage.getItem("signedUp")) {
                     // Not logged in...
                     setUser(null)
-                    setLoading(true)
+                    setLoading(false)
                     router.push('/login')
                 }
-
+                else{
+                    setUser(null)
+                    setLoading(false)
+                    router.push("/welcome")
+                }
                 setInitialLoading(false)
             }),
         [auth]
     )
     // User is authenticated
 
-    
+
     const router = useRouter();
     // signup function
     const signUp = async (email: string, password: string) => {
@@ -76,6 +79,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
         await createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
+                localStorage.setItem("signedUp",`${Math.random()*1000000}`);
                 setUser(userCredential.user);
                 router.push('/');
                 setLoading(false)
@@ -92,9 +96,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
         setLoading(true);
         await signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                setLoading(false)
+                localStorage.setItem("signedUp",`${Math.random()*1000000}`);
                 setUser(userCredential.user);
                 router.push('/');
+                setLoading(false)
+
             }).catch((err) => {
                 alert(err.message);
             }).finally(() => {
@@ -110,7 +116,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         await signOut(auth).then(() => {
             // setLoading(false);
             setUser(null);
-            router.push('/');
+            router.push('/login');
         }).catch((err) => {
             alert(err.message);
         }).finally(() => {

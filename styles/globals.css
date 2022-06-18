@@ -3,27 +3,60 @@
 @tailwind utilities;
 
 /* html, body , headers */
-@layer base{
-    body{
+@layer base {
+    body {
         @apply bg-[#141414] text-white !scrollbar-thin !scrollbar-track-transparent !scrollbar-thumb-red-600;
     }
-    footer #footer-items{
+
+    footer #footer-items {
         cursor: pointer;
     }
 }
 
 /* for custom components */
-@layer components{
-    .NavLinks{
-       @apply px-6 cursor-pointer font-[400] text-gray-300 transition duration-[.4s] ease-in-out hover:text-[#b3b3b3];
+@layer components {
+    .NavLinks {
+        @apply px-6 cursor-pointer font-[400] text-gray-300 transition duration-[.4s] ease-in-out hover:text-[#b3b3b3];
     }
 
-    #signup-form input{
+    #signup-form input {
         @apply w-full rounded bg-[#333] px-5 py-3.5 placeholder-[gray] outline-none focus:bg-[#454545];
     }
 
-    .modalButton{
-        @apply flex h-11 w-11 items-center justify-center
-        rounded-full border-2 border-[gray] bg-[#2a2a2a]/60 transition hover:border-white hover:bg-white/10;
+    .modalButton {
+        @apply flex h-11 w-11 items-center justify-center rounded-full border-2 border-[gray] bg-[#2a2a2a]/60 transition hover:border-white hover:bg-white/10;
     }
+
+    .MuiLoadingButton-root {
+        @apply border-2 border-red-500 w-20 h-6
+    }
+
+    .lds-dual-ring {
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+    }
+
+    .lds-dual-ring:after {
+        content: " ";
+        display: block;
+        width: 64px;
+        height: 64px;
+        margin: 8px;
+        border-radius: 50%;
+        border: 6px solid #fff;
+        border-color: #fff transparent #fff transparent;
+        animation: lds-dual-ring 1.2s linear infinite;
+    }
+
+    @keyframes lds-dual-ring {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
 }

@@ -7,6 +7,7 @@ import Row from '../components/Row'
 import { useRecoilState, useRecoilValue, } from 'recoil';
 import { modalState, movieState } from '../atoms/modalAtom'
 import Modal from '../components/Modal'
+import useAuth from '../hooks/useAuth'
 
 
 //interface for props types
@@ -37,17 +38,23 @@ const Home = ({
 }: Props) => {
   // console.log(netflixOriginals)
 
+  const loadingStyles={
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
+
   const showModal = useRecoilValue(modalState);
   const movie = useRecoilValue(movieState);
-
+  const {loading}=useAuth()
   return (
-    <div className=" relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511]">
+    <div className=" relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511]" style={loading ? loadingStyles:{}} >
       <Head>
         <title>Metaflix - Watch your favourite tv shows and movies online</title>
         <link rel="icon" href="/mlogo.png" />
       </Head>
       <Header />
-      <main className='relative pl-4 pb-24 lg:space-y-24 lg:pl-16'>
+      <main className='relative pl-4 pb-24 lg:space-y-24 lg:pl-16' style={{display:`${loading?"none":""}`,}}>
         <Banner netflixOriginals={netflixOriginals} />
         <section className="md:space-y-24">
           <Row title="Trending Now" movies={trendingNow} />
@@ -65,8 +72,7 @@ const Home = ({
       {/* movie modal */}
       {showModal && <Modal />}
       {/* movie modal */}
-
-
+      {loading&&<div className="lds-dual-ring"></div>}
     </div>
   )
 }

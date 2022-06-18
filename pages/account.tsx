@@ -1,9 +1,13 @@
 import Head from "next/head"
 import Link from "next/link"
+import { useRecoilValue } from "recoil";
+import { featureInProgressModalState } from "../atoms/modalAtom";
+import FeatureInProgress from "../components/FeatureInProgress";
 import useAuth from "../hooks/useAuth";
 
 function Account() {
     const {logout}=useAuth();
+    const ShowfeatureInProgress=useRecoilValue(featureInProgressModalState)
     return (
         <div className="">
           <Head>
@@ -68,6 +72,9 @@ function Account() {
               </p>
             </div>
           </main>
+          {
+            ShowfeatureInProgress && <FeatureInProgress/>
+          }
         </div>
       )
 }

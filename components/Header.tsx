@@ -40,11 +40,11 @@ function Header() {
           <SearchIcon className='h-6 w-6 hidden sm:inline' />
           <p className='hidden sm:inline  text-lg font-semibold leading-4'>Kids</p>
           <BellIcon className='h-6 w-6' />
-          {/* <Link href={'/account'}> */}
-          <button onClick={logout}>
+          <Link href={'/account'}>
+          {/* <button onClick={logout}> */}
             <img src="https://rb.gy/g1pwyx" alt="" className='cursor-pointer rounded' />
-          </button>
-          {/* </Link> */}
+          {/* </button> */}
+          </Link>
         </div>
       </div>
     </header>

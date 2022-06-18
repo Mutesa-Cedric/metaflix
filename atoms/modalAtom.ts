@@ -24,3 +24,8 @@ export const loginErrorModalState=atom({
   key:'loginErrorModalState',
   default:false
 })
+
+export const featureInProgressModalState=atom({
+  key:'featureInProgressModalState',
+  default:true
+})

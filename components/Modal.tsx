@@ -42,9 +42,6 @@ function Modal() {
 
   //fetching movie video
 
-  console.log(trailer)
-  console.log(genres)
-
   const handleClose = () => {
     setShowModal(false)
   }
@@ -54,6 +51,7 @@ function Modal() {
   }
 
 
+  console.log(trailer)
 
   return (
     <MuiModal open={showModal} onClose={handleClose}

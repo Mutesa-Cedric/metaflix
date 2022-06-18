@@ -19,3 +19,8 @@ export const notAvailableModalState=atom({
   key:'notAvailableModalState',
   default:false
 })
+
+export const loginErrorModalState=atom({
+  key:'loginErrorModalState',
+  default:false
+})

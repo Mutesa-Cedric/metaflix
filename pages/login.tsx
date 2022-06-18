@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useForm, SubmitHandler } from "react-hook-form";
 import useAuth from '../hooks/useAuth';
 import LoadingButton from '@mui/lab/LoadingButton';
+import LoginError from '../components/LoginError';
 
 interface Inputs {
   email: string;
@@ -14,7 +15,7 @@ interface Inputs {
 const Login: NextPage = () => {
 
   const [login, setLogin] = useState(false);
-  const { signIn, signUp, loading } = useAuth();
+  const { signIn, signUp, loading,error } = useAuth();
   // console.log(loading);
 
   const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
@@ -112,7 +113,9 @@ const Login: NextPage = () => {
           copyright &copy; 2022 <a href="https://github.com/mutesa-cedric"> Mutesa Cedric</a>
         </p>
       </form>
-
+        {
+          error && <LoginError error={error}/>
+        }
     </div>
   )
 }

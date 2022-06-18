@@ -9,6 +9,8 @@ import {
 } from 'firebase/auth'
 import { useRouter } from 'next/router'
 import { Children, createContext, useContext, useEffect, useMemo, useState } from 'react'
+import { useRecoilState } from 'recoil'
+import { loginErrorModalState } from '../atoms/modalAtom'
 import { auth } from '../firebase'
 
 interface IAuth {
@@ -41,6 +43,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     const [user, setUser] = useState<User | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [initialLoading, setInitialLoading] = useState(true);
+    const [showLoginErrorModalState,setShowLoginErrorModal]=useRecoilState(loginErrorModalState)
 
     // User is authenticated
     useEffect(
@@ -88,7 +91,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
                 router.push('/');
                 setLoading(false)
             }).catch((err) => {
-                alert(err.message);
+                setError(err.message)
+                setShowLoginErrorModal(true)
             }).finally(() => {
                 setLoading(false);
             })
@@ -106,7 +110,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
                 setLoading(false)
 
             }).catch((err) => {
-                alert(err.message);
+                setError(err.message)
+                setShowLoginErrorModal(true)
             }).finally(() => {
                 setLoading(false);
             })

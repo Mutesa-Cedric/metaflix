@@ -52,14 +52,14 @@ export function AuthProvider({ children }: AuthProviderProps) {
                     setLoading(false)
                 } else if(localStorage.getItem("signedUp")) {
                     // Not logged in...
+                    router.push('/login')
                     setUser(null)
                     setLoading(false)
-                    router.push('/login')
                 }
                 else{
+                    router.push("/welcome")
                     setUser(null)
                     setLoading(false)
-                    router.push("/welcome")
                 }
                 setInitialLoading(false)
             }),

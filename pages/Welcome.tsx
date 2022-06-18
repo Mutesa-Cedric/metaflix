@@ -173,7 +173,6 @@ function Welcome() {
                 </footer>
 
                 {/* footer */}
-
             </main>
         </div>
     )

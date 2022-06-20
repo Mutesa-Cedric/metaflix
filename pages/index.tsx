@@ -66,6 +66,7 @@ const Home = ({
         <meta property="og:site_name" content="metaflix" key="ogsitename" />
         <meta property="og:title" content="metaflix" key="ogtitle" />
         <meta property="og:description" content="Metaflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of movies" key="ogdesc" />
+        <meta name="keywords" content="Mutesa cedric, watch movies, movie website,metaflix,Metaflix,Movies Rwanda,mutesa,cedric" />
       </Head>
       <Header />
       <main className='relative pl-4 pb-24 lg:space-y-24 lg:pl-16' style={{ display: `${loading ? "none" : ""}` }}>

@@ -16,16 +16,16 @@ export const movieState = atom<Movie | DocumentData | null>({
 })
 
 export const notAvailableModalState=atom({
-  key:'notAvailableModalState',
+  key:'notAvailableState',
   default:false
 })
 
 export const loginErrorModalState=atom({
-  key:'loginErrorModalState',
+  key:'loginErrorState',
   default:false
 })
 
 export const featureInProgressModalState=atom({
-  key:'featureInProgressModalState',
+  key:'featureInProgressState',
   default:true
 })

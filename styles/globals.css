@@ -4,6 +4,10 @@
 
 /* html, body , headers */
 @layer base {
+    @font-face {
+        font-family: 'Netflix Sans';
+        src: url('/fonts/NetflixSans-Regular.ttf') format('ttf')
+    }
     body {
         @apply bg-[#141414] text-white !scrollbar-thin !scrollbar-track-transparent !scrollbar-thumb-red-600;
     }
@@ -58,5 +62,4 @@
             transform: rotate(360deg);
         }
     }
-
 }

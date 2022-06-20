@@ -48,14 +48,13 @@ function Modal() {
 
   const handlePlay=()=>{
     setShowNotAvailableModal(true)
+    setShowModal(false);
   }
 
 
-  console.log(trailer)
-
   return (
     <MuiModal open={showModal} onClose={handleClose}
-      className="fixed !top-7 left-0 right-0 z-50 mx-auto max-w-5xl overflow-hidden
+      className="fixed !top-7 left-0 right-0 z-50 mx-auto max-w-4xl overflow-hidden
     overflow-y-scroll rounded-md scrollbar-hide"
     >
       <>

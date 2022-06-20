@@ -33,6 +33,7 @@ function Banner({ netflixOriginals }: Props) {
 
   const handlePlay=()=>{
     setShowNotAvailableModal(true)
+    setCurrentMovie(movie)
   }
 
   return (

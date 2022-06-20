@@ -53,7 +53,19 @@ const Home = ({
     <div className=" relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511]" style={loading ? loadingStyles : {}} >
       <Head>
         <title>Metaflix - Watch your favourite tv shows and movies online</title>
-        <link rel="icon" href="/mlogo.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png"></link>
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png"></link>
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png"></link>
+        <link rel="manifest" href="/favicons/site.webmanifest"></link>
+        <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5"></link>
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ffffff" />
+        <meta name="description" content="Metaflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of movies" />
+        <meta property="og:url" content="metaflix.vercel.app" key="ogurl" />
+        <meta property="og:image" content="/banner.jpg" key="ogimage" />
+        <meta property="og:site_name" content="metaflix" key="ogsitename" />
+        <meta property="og:title" content="metaflix" key="ogtitle" />
+        <meta property="og:description" content="Metaflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of movies" key="ogdesc" />
       </Head>
       <Header />
       <main className='relative pl-4 pb-24 lg:space-y-24 lg:pl-16' style={{ display: `${loading ? "none" : ""}` }}>
@@ -72,14 +84,14 @@ const Home = ({
         </section>
 
       </main>
-      {!loading && 
+      {!loading &&
         <footer className='w-full flex items-center justify-center'>
           <p className=" pb-4 italic text-gray-400 font-bold">
             copyright &copy; 2022 <a href="https://github.com/mutesa-cedric"> Mutesa Cedric</a>
           </p>
         </footer>
       }
-      {showNotAvailableModal&&<NotAvailable/>}
+      {showNotAvailableModal && <NotAvailable />}
       {/* movie modal */}
       {showModal && <Modal />}
       {/* movie modal */}

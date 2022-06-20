@@ -39,7 +39,7 @@ const Login: NextPage = () => {
         objectFit="cover"
       />
       <img
-        src="https://rb.gy/ulxxee"
+        src="/logo.png"
         className="absolute left-4 top-4 cursor-pointer object-contain md:left-10 md:top-6"
         width={150}
         height={150}
@@ -94,9 +94,9 @@ const Login: NextPage = () => {
         {
           !loading &&
           <div className="text-[gray]">
-            New to Metflix?{' '}
+            <span className="pl-2 mb-2"> New to Metflix?{' '}</span>
             <button
-              className="cursor-pointer text-white hover:underline"
+              className="cursor-pointer text-white bg-red-500 py-2 ml-2 rounded-md hover:underline w-full"
               type="submit"
               onClick={() => setLogin(false)}
             >
